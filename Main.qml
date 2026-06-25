@@ -8,7 +8,17 @@ ApplicationWindow {
     height: 800
     visible: true
     visibility: Window.FullScreen
-
+    property string currentTime: ""
+    function updateTime(){
+        var date = new Date()
+        currentTime = Qt.formatDateTime(date, "hh:mm AP")
+    }
+    Timer{
+        interval: 500
+        running: true
+        repeat: true
+        onTriggered: mainRoot.updateTime()
+    }
     Rectangle{
         id: containerId
         anchors.fill: parent
@@ -17,21 +27,15 @@ ApplicationWindow {
             anchors.centerIn: parent
             source: "qrc:/wall.png"
         }
+        BottomMenuBar{
+            id: sourceId
 
-
-        Rectangle{
-        id: bottomBarId
-        height: (containerId.height / 17)
-        width: (containerId.width - 20)
-        color: "grey"
-        anchors.horizontalCenter: containerId.horizontalCenter
-        anchors.bottom: containerId.bottom
-        anchors.bottomMargin: 10
-        anchors.leftMargin: 10
-        anchors.rightMargin: 10
-        radius: 20
-        border.color: "white"
-        border.width: 3
+        }
+        MainMenu{
+            id: targetId
+            anchors.bottom: sourceId.targetrect.top
+            anchors.left: sourceId.targetrect.left
+            anchors.bottomMargin: 10
         }
     }
 }
