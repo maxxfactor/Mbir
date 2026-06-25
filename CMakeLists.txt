@@ -4,6 +4,8 @@ project(Mbir VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_AUTORCC ON)
+
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup(REQUIRES 6.10)
@@ -21,6 +23,7 @@ qt_add_qml_module(appMbir
     URI Mbir
     QML_FILES
         Main.qml
+        RESOURCES Reasorces.qrc
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
