@@ -37,6 +37,37 @@ Rectangle {
         anchors.left: rootMenuBarId.left
         anchors.verticalCenter: rootMenuBarId.verticalCenter
         anchors.leftMargin: 10
+        Text{
+            id: startmenuTextId
+            text: "S"
+            font.bold: true
+            font.pointSize: 20
+            color: "white"
+            anchors.centerIn: startMenuButtonId
+        }
+
+        MouseArea{
+            id: startMouseId
+            anchors.fill: startMenuButtonId
+            onClicked: {
+                if(targetId.visible === true){
+                targetId.visible = false
+                }
+                else{
+                    targetId.visible = true
+                }
+            }
+        }
+    }
+    Rectangle{
+        id: spacerId
+        border.width: 3
+        border.color: "white"
+        height: startMenuButtonId.height
+        width: 3
+        anchors.verticalCenter: rootMenuBarId.verticalCenter
+        anchors.left: startMenuButtonId.right
+        anchors.leftMargin: 10
     }
 
     Component.onCompleted: updateTime()

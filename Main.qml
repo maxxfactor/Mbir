@@ -33,6 +33,7 @@ ApplicationWindow {
         }
         MainMenu{
             id: targetId
+            visible: false
             anchors.bottom: sourceId.targetrect.top
             anchors.left: sourceId.targetrect.left
             anchors.bottomMargin: 10
