@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import QtQuick.Controls.Basic
 
 ApplicationWindow {
+    property alias mainWindowVar: mainRoot
     id: mainRoot
     width: 800
     height: 800
@@ -29,7 +30,6 @@ ApplicationWindow {
         }
         BottomMenuBar{
             id: sourceId
-
         }
         MainMenu{
             id: targetId
@@ -37,6 +37,9 @@ ApplicationWindow {
             anchors.bottom: sourceId.targetrect.top
             anchors.left: sourceId.targetrect.left
             anchors.bottomMargin: 10
+        }
+        SettingsPage{
+            id: settingsLabelId
         }
     }
 }

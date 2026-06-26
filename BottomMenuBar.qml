@@ -6,9 +6,9 @@ import QtQuick.Layouts
 Rectangle {
     property alias targetrect: rootMenuBarId
     id: rootMenuBarId
-    visible: true
     width: (containerId.width - 20)
     height: (containerId.height / 17)
+    opacity: .8
     color: "Grey"
     radius: 20
     border.color: "white"
