@@ -24,7 +24,7 @@ ApplicationWindow {
         Image{
             id: backgroundId
             anchors.fill: parent
-            source: "qrc:/2kwall.jpg"
+            source: "qrc:/wall.png"
         }
         BottomMenuBar{
             id: sourceId
