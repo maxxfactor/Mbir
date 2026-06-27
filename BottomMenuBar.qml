@@ -8,8 +8,7 @@ Rectangle {
     id: rootMenuBarId
     width: (containerId.width - 20)
     height: (containerId.height / 17)
-    opacity: .8
-    color: "Grey"
+    color: "#D9333333"
     radius: 20
     border.color: "white"
     border.width: 3

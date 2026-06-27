@@ -6,14 +6,13 @@ Rectangle {
     width: (containerId.width / 4)
     height: (containerId.height / 2)
     radius: 20
-    opacity: .8
-    color: "grey"
+    color: "#D9333333"
     border.color: "white"
     border.width: 3
     Rectangle{
         id: userBubbleId
         border.width: 3
-        color: "grey"
+        color: "ff333333"
         radius: 20
         border.color: "white"
         width: (rootMainMenuId.width / 5)
@@ -34,6 +33,7 @@ Rectangle {
             onHoveredChanged: {
                 if(hovered){
                     userBubbleId.color = "dark grey"
+
                 }
                 else{
                     userBubbleId.color = "grey"
@@ -42,6 +42,17 @@ Rectangle {
         }
     }
     Rectangle{
+        id: userSpacerId
+        border.color: "white"
+        border.width: 3
+        height: userBubbleId.height
+        width: 3
+        anchors.verticalCenter: userBubbleId.verticalCenter
+        anchors.left: userBubbleId.right
+        anchors.leftMargin: 35
+    }
+
+    Rectangle{
         id: closeMbirId
         border.color: "white"
         border.width: 3
@@ -49,9 +60,9 @@ Rectangle {
         radius: 20
         height: userBubbleId.height
         width: (userBubbleId.width + 75)
-        anchors.left: userBubbleId.right
-        anchors.verticalCenter: userBubbleId.verticalCenter
-        anchors.leftMargin: 10
+        anchors.left: userSpacerId.right
+        anchors.verticalCenter: userSpacerId.verticalCenter
+        anchors.leftMargin: 35
         Text{
             id: closeMbirTextId
             anchors.centerIn: closeMbirId
