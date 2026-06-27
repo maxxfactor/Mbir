@@ -5,8 +5,6 @@ import QtQuick.Controls.Basic
 ApplicationWindow {
     property alias mainWindowVar: mainRoot
     id: mainRoot
-    width: 800
-    height: 800
     visible: true
     visibility: Window.FullScreen
     property string currentTime: ""
@@ -25,7 +23,7 @@ ApplicationWindow {
         anchors.fill: parent
         Image{
             id: backgroundId
-            anchors.centerIn: parent
+            anchors.fill: parent
             source: "qrc:/wall.png"
         }
         BottomMenuBar{
