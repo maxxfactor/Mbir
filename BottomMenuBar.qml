@@ -29,9 +29,7 @@ Rectangle {
         id: startMenuButtonId
         width: (rootMenuBarId.width / 37)
         height: startMenuButtonId.width
-        color: "dark grey"
-        border.color: "white"
-        border.width: 3
+        color: "transparent"
         radius: 20
         anchors.left: rootMenuBarId.left
         anchors.verticalCenter: rootMenuBarId.verticalCenter
@@ -54,6 +52,19 @@ Rectangle {
                 }
                 else{
                     targetId.visible = true
+                }
+            }
+        }
+        HoverHandler{
+            onHoveredChanged: {
+            if(hovered){
+                startMenuButtonId.border.width = 2
+                startMenuButtonId.border.color = "red"
+                startMenuButtonId.color = "#ff333333"
+            }
+                else{
+                    startMenuButtonId.border.color = "transparent"
+                    startMenuButtonId.color = "transparent"
                 }
             }
         }
