@@ -2,6 +2,7 @@ import QtQuick
 
 Rectangle {
     property alias anchoredRect: rootMainMenuId
+    property alias setPageId: stackSettingsPageId
     id: rootMainMenuId
     width: (containerId.width / 4)
     height: (containerId.height / 2)
@@ -164,10 +165,18 @@ Rectangle {
                 }
             }
         }
+        MouseArea{
+            anchors.fill: parent
+            onClicked: {
+                targetId.visible = true
+                stackSettingsPageId.visible = true
+            }
+        }
     }
     Rectangle{
         id: stackSettingsPageId
         color: "transparent"
+        visible: false
         anchors.left: stackSpacerId.right
         anchors.leftMargin: 25
         anchors.top: verticalSpacerId.bottom
@@ -188,6 +197,14 @@ Rectangle {
                 font.bold: true
                 color: "white"
             }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    settingsLabelId.visible = true
+                    targetId.visible = false
+                }
+            }
+
             HoverHandler{
                 onHoveredChanged: {
                     if(hovered){

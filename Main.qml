@@ -10,7 +10,7 @@ ApplicationWindow {
     property string currentTime: ""
     function updateTime(){
         var date = new Date()
-        currentTime = Qt.formatDateTime(date, "hh:mm AP")
+        currentTime = Qt.formatDateTime(date, "h:mm AP")
     }
     Timer{
         interval: 500
@@ -21,6 +21,18 @@ ApplicationWindow {
     Rectangle{
         id: containerId
         anchors.fill: parent
+        Rectangle{
+            id: isOpenId
+            anchors.fill: parent
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    targetId.visible = false
+                    targetId.setPageId.visible = false
+                }
+            }
+        }
+
         Image{
             id: backgroundId
             anchors.fill: parent
@@ -38,6 +50,7 @@ ApplicationWindow {
         }
         SettingsPage{
             id: settingsLabelId
+            visible: false
         }
     }
 }
