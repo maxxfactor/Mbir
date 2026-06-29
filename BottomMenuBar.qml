@@ -52,6 +52,7 @@ Rectangle {
                 }
                 else{
                     targetId.visible = true
+                    targetId.setPageId.visible = false
                 }
             }
         }

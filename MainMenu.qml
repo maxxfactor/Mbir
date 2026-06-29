@@ -3,6 +3,7 @@ import QtQuick
 Rectangle {
     property alias anchoredRect: rootMainMenuId
     property alias setPageId: stackSettingsPageId
+    property alias setButtonId: settingsStackId
     id: rootMainMenuId
     width: (containerId.width / 4)
     height: (containerId.height / 2)
@@ -133,46 +134,6 @@ Rectangle {
         anchors.leftMargin: 10
         anchors.verticalCenter: rootMainMenuId.verticalCenter
     }
-
-    Rectangle{
-        id: settingsStackId
-        height: (rootMainMenuId.height / 10)
-        width: (rootMainMenuId.width / 5)
-        color: "transparent"
-        radius: 20
-        anchors.left: rootMainMenuId.left
-        anchors.leftMargin: 20
-        anchors.top: verticalSpacerId.bottom
-        anchors.topMargin: 20
-        Text{
-            id: settingsStackTextId
-            text: "System"
-            anchors.centerIn: settingsStackId
-            font.pointSize: 13
-            font.bold: true
-            color: "white"
-        }
-        HoverHandler{
-            onHoveredChanged: {
-                if(hovered){
-                    settingsStackId.color = "#ff333333"
-                    settingsStackId.border.width = 2
-                    settingsStackId.border.color = "red"
-                }
-                else{
-                    settingsStackId.color = "transparent"
-                    settingsStackId.border.color = "transparent"
-                }
-            }
-        }
-        MouseArea{
-            anchors.fill: parent
-            onClicked: {
-                targetId.visible = true
-                stackSettingsPageId.visible = true
-            }
-        }
-    }
     Rectangle{
         id: stackSettingsPageId
         color: "transparent"
@@ -220,4 +181,43 @@ Rectangle {
             }
         }
     }
+    Rectangle{
+        id: settingsStackId
+        height: (rootMainMenuId.height / 10)
+        width: (rootMainMenuId.width / 5)
+        color: "transparent"
+        radius: 20
+        anchors.left: rootMainMenuId.left
+        anchors.leftMargin: 20
+        anchors.top: verticalSpacerId.bottom
+        anchors.topMargin: 20
+        Text{
+            id: settingsStackTextId
+            text: "System"
+            anchors.centerIn: settingsStackId
+            font.pointSize: 13
+            font.bold: true
+            color: "white"
+        }
+        HoverHandler{
+            onHoveredChanged: {
+                if(settingsStackId.color != "white"){
+                if(hovered){   
+                    settingsStackId.color = "#ff333333"
+                    settingsStackId.border.width = 2
+                    settingsStackId.border.color = "red"
+                    }
+                }
+            }
+        }
+        MouseArea{
+            anchors.fill: parent
+            onClicked: {
+                targetId.visible = true
+                stackSettingsPageId.visible = true
+                settingsStackId.color = "white"
+            }
+        }
+    }
+
 }

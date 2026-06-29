@@ -29,6 +29,7 @@ ApplicationWindow {
                 onClicked: {
                     targetId.visible = false
                     targetId.setPageId.visible = false
+                    targetId.setButtonId.color = "transparent"
                 }
             }
         }
