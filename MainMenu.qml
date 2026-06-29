@@ -4,6 +4,7 @@ Rectangle {
     property alias anchoredRect: rootMainMenuId
     property alias setPageId: stackSettingsPageId
     property alias setButtonId: settingsStackId
+    property color isSelectedColor: "white"
     id: rootMainMenuId
     width: (containerId.width / 4)
     height: (containerId.height / 2)
@@ -11,11 +12,18 @@ Rectangle {
     color: "#D9333333"
     border.color: "white"
     border.width: 3
+    MouseArea{
+        anchors.fill: parent
+        onClicked:{
+            rootMainMenuId.visible = true
+            stackSettingsPageId.visible = false
+        }
+    }
     Rectangle{
         id: userBubbleId
         color: "transparent"
         radius: 20
-        width: (rootMainMenuId.width / 5)
+        width: (rootMainMenuId.width / 4)
         height: (rootMainMenuId.height / 11)
         anchors.top: rootMainMenuId.top
         anchors.left: rootMainMenuId.left
@@ -50,7 +58,7 @@ Rectangle {
         color: "transparent"
         radius: 20
         height: userBubbleId.height
-        width: (userBubbleId.width + 75)
+        width: (userBubbleId.width)
         anchors.left: userBubbleId.right
         anchors.verticalCenter: userBubbleId.verticalCenter
         anchors.leftMargin: 70
@@ -128,11 +136,11 @@ Rectangle {
         id: stackSpacerId
         border.color: "white"
         border.width: 3
-        height: rootMainMenuId.height
+        height: (rootMainMenuId.height - (userBubbleId.height * 1.5))
         width: 3
         anchors.left: settingsStackId.right
         anchors.leftMargin: 10
-        anchors.verticalCenter: rootMainMenuId.verticalCenter
+        anchors.bottom: rootMainMenuId.bottom
     }
     Rectangle{
         id: stackSettingsPageId
@@ -201,14 +209,14 @@ Rectangle {
         }
         HoverHandler{
             onHoveredChanged: {
-                if(settingsStackId.color != "white"){
                 if(hovered){   
-                    settingsStackId.color = "#ff333333"
-                    settingsStackId.border.width = 2
-                    settingsStackId.border.color = "red"
+                       if(settingsStackId.color === isSelectedColor){
+                           settingsStackId.color = "#ff333333"
+                           settingsStackId.border.width = 2
+                           settingsStackId.border.color = "red"
+                       }
                     }
                 }
-            }
         }
         MouseArea{
             anchors.fill: parent
