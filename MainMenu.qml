@@ -4,7 +4,7 @@ Rectangle {
     property alias anchoredRect: rootMainMenuId
     property alias setPageId: stackSettingsPageId
     property alias setButtonId: settingsStackId
-    property color isSelectedColor: "white"
+    property color isSelectedColor: "#80000000"
     id: rootMainMenuId
     width: (containerId.width / 4)
     height: (containerId.height / 2)
@@ -17,6 +17,8 @@ Rectangle {
         onClicked:{
             rootMainMenuId.visible = true
             stackSettingsPageId.visible = false
+            settingsStackId.color = "transparent"
+            settingsStackId.border.color = "transparent"
         }
     }
     Rectangle{
@@ -171,6 +173,8 @@ Rectangle {
                 onClicked: {
                     settingsLabelId.visible = true
                     targetId.visible = false
+                    settingsStackId.color = "transparent"
+                    settingsStackId.border.color = "transparent"
                 }
             }
 
@@ -211,11 +215,20 @@ Rectangle {
             onHoveredChanged: {
                 if(hovered){   
                        if(settingsStackId.color === isSelectedColor){
+
+                       }
+                       if(settingsStackId.color !== isSelectedColor){
                            settingsStackId.color = "#ff333333"
                            settingsStackId.border.width = 2
                            settingsStackId.border.color = "red"
                        }
                     }
+                else{
+                    if(settingsStackId.color !== isSelectedColor){
+                        settingsStackId.color = "transparent"
+                        settingsStackId.border.color = "transparent"
+                    }
+                }
                 }
         }
         MouseArea{
@@ -223,7 +236,7 @@ Rectangle {
             onClicked: {
                 targetId.visible = true
                 stackSettingsPageId.visible = true
-                settingsStackId.color = "white"
+                settingsStackId.color = "#80000000"
             }
         }
     }
