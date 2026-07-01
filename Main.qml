@@ -31,6 +31,8 @@ ApplicationWindow {
                     targetId.setPageId.visible = false
                     targetId.setButtonId.color = "transparent"
                     targetId.setButtonId.border.color = "transparent"
+                    sourceId.startButalias.color = "transparent"
+                    sourceId.startButalias.border.color = "transparent"
                 }
             }
         }
@@ -52,6 +54,10 @@ ApplicationWindow {
         }
         SettingsPage{
             id: settingsLabelId
+            visible: false
+        }
+        InfoPage{
+            id: infoLabelId
             visible: false
         }
     }

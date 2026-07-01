@@ -27,6 +27,7 @@ qt_add_qml_module(appMbir
         QML_FILES BottomMenuBar.qml
         QML_FILES MainMenu.qml
         QML_FILES SettingsPage.qml
+        QML_FILES InfoPage.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

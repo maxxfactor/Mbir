@@ -175,6 +175,8 @@ Rectangle {
                     targetId.visible = false
                     settingsStackId.color = "transparent"
                     settingsStackId.border.color = "transparent"
+                    sourceId.startButalias.color = "transparent"
+                    sourceId.startButalias.border.color = "transparent"
                 }
             }
 
@@ -189,6 +191,42 @@ Rectangle {
                         systemSettingsButtonId.color = "transparent"
                         systemSettingsButtonId.border.color = "transparent"
                     }
+                }
+            }
+        }
+        Rectangle{
+            id: infoButtonId
+            width: stackSettingsPageId.width
+            height: systemSettingsButtonId.height
+            color: "transparent"
+            radius: 20
+            anchors.top: systemSettingsButtonId.bottom
+            anchors.topMargin: 3
+            Text{
+                id: infoButtonTextId
+                anchors.centerIn: parent
+                text: "Mbir info"
+                font.pointSize: 13
+                font.bold: true
+                color: "white"
+            }
+            HoverHandler{
+                onHoveredChanged: {
+                    if(hovered){
+                        infoButtonId.color = "#ff333333"
+                        infoButtonId.border.width = 2
+                        infoButtonId.border.color = "red"
+                    }
+                    else{
+                        infoButtonId.color = "transparent"
+                        infoButtonId.border.color = "transparent"
+                    }
+                }
+            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    infoLabelId.visible = true
                 }
             }
         }

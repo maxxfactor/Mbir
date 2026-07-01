@@ -5,6 +5,7 @@ import QtQuick.Layouts
 
 Rectangle {
     property alias targetrect: rootMenuBarId
+    property alias startButalias: startMenuButtonId
     id: rootMenuBarId
     width: (containerId.width - 20)
     height: (containerId.height / 17)
@@ -49,23 +50,32 @@ Rectangle {
             onClicked: {
                 if(targetId.visible === true){
                 targetId.visible = false
+                    startMenuButtonId.color = "transparent"
                 }
                 else{
                     targetId.visible = true
                     targetId.setPageId.visible = false
+                    startMenuButtonId.color = "#80000000"
                 }
             }
         }
         HoverHandler{
             onHoveredChanged: {
             if(hovered){
-                startMenuButtonId.border.width = 2
-                startMenuButtonId.border.color = "red"
-                startMenuButtonId.color = "#ff333333"
+                if(startMenuButtonId.color === targetId.isSelectedColor){
+
+                }
+                if(startMenuButtonId.color !== targetId.isSelectedColor){
+                    startMenuButtonId.border.width = 2
+                    startMenuButtonId.border.color = "red"
+                    startMenuButtonId.color = "#ff333333"
+                }
             }
                 else{
+                if(startMenuButtonId.color !== targetId.isSelectedColor){
                     startMenuButtonId.border.color = "transparent"
                     startMenuButtonId.color = "transparent"
+                }
                 }
             }
         }

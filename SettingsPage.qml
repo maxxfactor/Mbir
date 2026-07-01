@@ -8,18 +8,28 @@ Rectangle {
     border.width: 3
     width: (containerId.width / 3)
     height: (containerId.height / 1.5)
-    anchors.horizontalCenter: containerId.horizontalCenter
-    anchors.verticalCenter: containerId.verticalCenter
+    x: (mainWindowVar.width / 2) - width / 2
+    y: (mainWindowVar.height / 2) - height / 2
     Rectangle{
         id: setHeaderId
         width:(rootSettingsId.width - 6)
-        height: (rootSettingsId.height / 7)
-        color: "#ff363636"
+        height: (rootSettingsId.height / 12)
+        color: "#80000000"
         topLeftRadius: 20
         topRightRadius: 20
         anchors.horizontalCenter: rootSettingsId.horizontalCenter
         anchors.top: rootSettingsId.top
-        anchors.topMargin: 3
+        anchors.topMargin: 2
+        DragHandler{
+            target: null
+            onCentroidChanged: {
+                if(active){
+                    rootSettingsId.x += centroid.velocity.x * 0.001
+                    rootSettingsId.y += centroid.velocity.y * 0.001
+                }
+            }
+        }
+
         Rectangle{
             id: setCloseButtonId
             width: (rootSettingsId.width / 27)
@@ -73,7 +83,7 @@ Rectangle {
                 text: "M B"
                 font.bold: true
                 color: "white"
-                font.pointSize: 40
+                font.pointSize: 70
             }
         }
     }
