@@ -2,6 +2,7 @@ import QtQuick
 
 Rectangle {
     id: rootSettingsId
+    property alias refClose: setCloseButtonId
     radius: 20
     color: "#D9333333"
     border.color: "white"
@@ -13,7 +14,7 @@ Rectangle {
     Rectangle{
         id: setHeaderId
         width:(rootSettingsId.width - 6)
-        height: (rootSettingsId.height / 12)
+        height: 50
         color: "#80000000"
         topLeftRadius: 20
         topRightRadius: 20
@@ -29,7 +30,6 @@ Rectangle {
                 }
             }
         }
-
         Rectangle{
             id: setCloseButtonId
             width: (rootSettingsId.width / 27)

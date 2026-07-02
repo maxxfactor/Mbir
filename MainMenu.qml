@@ -227,6 +227,11 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     infoLabelId.visible = true
+                    targetId.visible = false
+                    settingsStackId.color = "transparent"
+                    settingsStackId.border.color = "transparent"
+                    sourceId.startButalias.color = "transparent"
+                    sourceId.startButalias.border.color = "transparent"
                 }
             }
         }

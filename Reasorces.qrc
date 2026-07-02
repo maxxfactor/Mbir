@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>wall.png</file>
         <file>2kwall.jpg</file>
+        <file>logo.png</file>
+        <file>logo_w_text.png</file>
     </qresource>
 </RCC>
